@@ -1,0 +1,7 @@
+(sym_lib_table
+  (lib (name "Connector-ML")(type "Legacy")(uri "${KIPRJMOD}/symbols/Connector-ML.lib")(options "")(descr ""))
+  (lib (name "mic")(type "KiCad")(uri "${KIPRJMOD}/symbols/GMA4030H11-F26.kicad_sym")(options "")(descr ""))
+  (lib (name "usb")(type "KiCad")(uri "${KIPRJMOD}/symbols/C404965.kicad_sym")(options "")(descr ""))
+  (lib (name "tof")(type "Legacy")(uri "${KIPRJMOD}/symbols/VL6180V1NR_1.lib")(options "")(descr ""))
+  (lib (name "mag")(type "Legacy")(uri "${KIPRJMOD}/symbols/LSM303AGR.lib")(options "")(descr ""))
+)
