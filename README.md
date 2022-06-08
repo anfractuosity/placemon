@@ -6,6 +6,8 @@ One of the key inspirations is the paper - "Synthetic Sensors: Towards General-P
 
 ![3D Render](images/placemon.png)
 
+![Assembled](images/placemon.jpg)
+
 # Sensors
 
 * LSM303AGR - accelerometer and compass
