@@ -49,3 +49,18 @@ print("Magnetometer (micro-Teslas)): X=%0.3f Y=%0.3f Z=%0.3f"%mag.magnetic)
 print('Humidity: {0}%'.format(sensor.relative_humidity))
 print('Temperature: {0}C'.format(sensor.temperature))
 ```
+
+# Audio 
+
+Uses PDM driver from https://github.com/imec-int/Raspberry-Pi-Installer-Scripts
+
+Changed the following lines, to the suggestion:
+
+```
+/home/pi/Raspberry-Pi-Installer-Scripts/pdm_mic_module/linux_bcm2835_kernel/bcm2835-i2s.c:792:3: error: ‘struct snd_soc_dai_driver’ has no member named ‘symmetric_rates’; did you mean ‘symmetric_rate’?
+/home/pi/Raspberry-Pi-Installer-Scripts/pdm_mic_module/linux_bcm2835_kernel/bcm2835-i2s.c:793:3: error: ‘struct snd_soc_dai_driver’ has no member named ‘symmetric_samplebits’; did you mean ‘symmetric_sample_bits’?
+```
+
+```
+arecord --device="plughw:0,0" -f S16_LE -r 44100 out.wav
+```
