@@ -16,3 +16,34 @@ One of the key inspirations is the paper - "Synthetic Sensors: Towards General-P
 # To Do
 
 * Ooops - 2.54mm pin header is in slightly wrong location, so mounting holes won't be usable currently
+
+# Testing
+
+Install:
+
+```
+sudo apt install python3-pip
+pip3 install adafruit-circuitpython-sht31d
+pip3 install adafruit-circuitpython-lsm303-accel
+pip3 install adafruit-circuitpython-lis2mdl
+```
+
+Run:
+
+```
+import board
+import busio
+import adafruit_sht31d
+import adafruit_lsm303_accel
+import adafruit_lis2mdl
+
+i2c = board.I2C()
+accel = adafruit_lsm303_accel.LSM303_Accel(i2c)
+mag = adafruit_lis2mdl.LIS2MDL(i2c)
+sensor = adafruit_sht31d.SHT31D(i2c)
+
+print("Acceleration (m/s^2): X=%0.3f Y=%0.3f Z=%0.3f"%accel.acceleration)
+print("Magnetometer (micro-Teslas)): X=%0.3f Y=%0.3f Z=%0.3f"%mag.magnetic)
+print('Humidity: {0}%'.format(sensor.relative_humidity))
+print('Temperature: {0}C'.format(sensor.temperature))
+```
