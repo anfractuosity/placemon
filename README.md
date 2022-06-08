@@ -1,5 +1,9 @@
 # placemon
 
+The idea is to use the data collected from a number of sensors along with machine learning techniques to recognise different events occurring in your home.  For example processing audio data, to see if you have left a tap running.
+
+One of the key inspirations is the paper - "Synthetic Sensors: Towards General-Purpose Sensing", I noticed some of the sensors used alone on their board such as the GridEye thermal sensor appear to be pretty expensive.  I've tried to select a smaller set of sensors that will hopefully allow us to achieve a similar level of accuracy at detecting different events.
+
 ![3D Render](images/placemon.png)
 
 # Sensors
