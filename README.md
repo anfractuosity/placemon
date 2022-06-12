@@ -25,6 +25,7 @@ Install:
 
 ```
 sudo apt install python3-pip
+```
 
 Libraries for microphone:
 ```
