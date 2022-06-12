@@ -25,13 +25,20 @@ Install:
 
 ```
 sudo apt install python3-pip
+
+Libraries for microphone:
+```
+sudo apt install libasound2-dev libportaudio2 libsndfile1
+pip3 install sounddevice soundfile
+```
+
+Libraries for temperature and accelerometer:
+```
 pip3 install adafruit-circuitpython-sht31d
-pip3 install adafruit-circuitpython-lsm303-accel
-pip3 install adafruit-circuitpython-lis2mdl
+pip3 install adafruit-circuitpython-lsm303-accel adafruit-circuitpython-lis2mdl
 ```
 
 Run:
-
 ```
 import board
 import busio

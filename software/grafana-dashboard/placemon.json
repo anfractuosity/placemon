@@ -28,90 +28,60 @@
   "liveNow": false,
   "panels": [
     {
+      "cards": {},
+      "color": {
+        "cardColor": "#b4ff00",
+        "colorScale": "sqrt",
+        "colorScheme": "interpolateSpectral",
+        "exponent": 0.5,
+        "max": 40000,
+        "min": 0,
+        "mode": "spectrum"
+      },
+      "dataFormat": "tsbuckets",
       "datasource": {
         "type": "influxdb",
         "uid": "P937738115E7BC94D"
       },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
       "gridPos": {
-        "h": 7,
+        "h": 8,
         "w": 12,
         "x": 0,
         "y": 0
       },
-      "id": 4,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom"
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
+      "heatmap": {},
+      "hideZeroBuckets": false,
+      "highlightCards": true,
+      "id": 13,
+      "legend": {
+        "show": false
       },
+      "reverseYBuckets": false,
       "targets": [
         {
           "datasource": {
             "type": "influxdb",
             "uid": "P937738115E7BC94D"
           },
-          "query": "from(bucket: \"placemon_data\") \n|> range(start: -1d)\n|> filter(fn: (r) => r._measurement == \"Building 1\" and r._field == \"humidity\")\n",
+          "query": "from(bucket: \"placemon_data\") \n|> range(start: -5m)\n|> filter(fn: (r) => r._measurement == \"Building 1\" and (r._field == \"000\"  or r._field == \"020\"  or r._field == \"040\"  or r._field == \"060\"  or r._field == \"080\"  or r._field == \"100\"  or r._field == \"120\"  or r._field == \"140\"  or r._field == \"160\"  or r._field == \"180\"  or r._field == \"200\"  or r._field == \"220\"  or r._field == \"240\"  or r._field == \"260\"  or r._field == \"280\"  or r._field == \"300\"  or r._field == \"320\"  or r._field == \"340\"  or r._field == \"360\"  or r._field == \"380\"  or r._field == \"400\"  or r._field == \"420\"  or r._field == \"440\"  or r._field == \"460\"  or r._field == \"480\"  or r._field == \"500\" ))",
           "refId": "A"
         }
       ],
-      "title": "Humidity",
-      "type": "timeseries"
+      "title": "FFT",
+      "tooltip": {
+        "show": true,
+        "showHistogram": false
+      },
+      "type": "heatmap",
+      "xAxis": {
+        "show": true
+      },
+      "yAxis": {
+        "format": "short",
+        "logBase": 1,
+        "show": true
+      },
+      "yBucketBound": "auto"
     },
     {
       "datasource": {
@@ -341,12 +311,12 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
+        "h": 4,
         "w": 12,
         "x": 0,
-        "y": 7
+        "y": 8
       },
-      "id": 2,
+      "id": 4,
       "options": {
         "legend": {
           "calcs": [],
@@ -364,11 +334,11 @@
             "type": "influxdb",
             "uid": "P937738115E7BC94D"
           },
-          "query": "from(bucket: \"placemon_data\") \n|> range(start: -1d)\n|> filter(fn: (r) => r._measurement == \"Building 1\" and r._field == \"temperature\")\n\n",
+          "query": "from(bucket: \"placemon_data\") \n|> range(start: -1d)\n|> filter(fn: (r) => r._measurement == \"Building 1\" and r._field == \"humidity\")\n",
           "refId": "A"
         }
       ],
-      "title": "Temperature",
+      "title": "Humidity",
       "type": "timeseries"
     },
     {
@@ -455,6 +425,92 @@
         }
       ],
       "title": "Accelerometer Z",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P937738115E7BC94D"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 12,
+        "x": 0,
+        "y": 12
+      },
+      "id": 2,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P937738115E7BC94D"
+          },
+          "query": "from(bucket: \"placemon_data\") \n|> range(start: -1d)\n|> filter(fn: (r) => r._measurement == \"Building 1\" and r._field == \"temperature\")\n\n",
+          "refId": "A"
+        }
+      ],
+      "title": "Temperature",
       "type": "timeseries"
     },
     {
@@ -724,7 +780,7 @@
     "list": []
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-5m",
     "to": "now"
   },
   "timepicker": {},
