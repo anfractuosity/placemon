@@ -8,6 +8,8 @@ One of the key inspirations is the paper - "Synthetic Sensors: Towards General-P
 
 ![Assembled](images/placemon.jpg)
 
+![Grafana Dashboard](images/dash.png)
+
 # Sensors
 
 * LSM303AGR - accelerometer and compass
